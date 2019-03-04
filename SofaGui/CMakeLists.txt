@@ -132,5 +132,17 @@ endforeach()
 configure_file(config.h.in "${CMAKE_BINARY_DIR}/include/SofaGui/config.h")
 install(FILES "${CMAKE_BINARY_DIR}/include/SofaGui/config.h" DESTINATION "include/SofaGui" COMPONENT headers)
 
+
+
+set(GUI_SET "")
+get_cmake_property(_variableNames VARIABLES)
+list (SORT _variableNames)
+foreach (_variableName ${_variableNames})
+    if(_variableName MATCHES "SOFA_?GUI*")
+        string(APPEND GUI_SET "set(${_variableName} @${_variableName}@)\n")
+    endif()
+endforeach()
+
+
 ## CMake package configurations files
 sofa_write_package_config_files(SofaGui ${SOFAGUI_VERSION})

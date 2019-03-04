@@ -31,6 +31,9 @@
 #include "headlessRecorder/HeadlessRecorder.h"
 #endif
 
+#ifdef SOFA_GUI_SOFASERVER
+#include "SofaServer/SofaServer.h"
+#endif
 namespace sofa
 {
 
@@ -59,6 +62,11 @@ int QGLViewerGUIClass = GUIManager::RegisterGUI ( "qglviewer", &qt::RealGUI::Cre
 
 #ifdef SOFA_GUI_QTVIEWER
 int QtGUIClass = GUIManager::RegisterGUI ( "qt", &qt::RealGUI::CreateGUI, NULL, 2 );
+#endif
+
+
+#ifdef SOFA_GUI_SOFASERVER
+int SofaServerClass = GUIManager::RegisterGUI ( "server", &SofaServer::CreateGUI, NULL, 2 );
 #endif
 
 } // namespace gui
