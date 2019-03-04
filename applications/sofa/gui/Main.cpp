@@ -66,7 +66,7 @@ int QtGUIClass = GUIManager::RegisterGUI ( "qt", &qt::RealGUI::CreateGUI, NULL, 
 
 
 #ifdef SOFA_GUI_SOFASERVER
-int SofaServerClass = GUIManager::RegisterGUI ( "server", &SofaServer::CreateGUI, NULL, 2 );
+int SofaServerClass = GUIManager::RegisterGUI ( "server", &SofaServer::CreateGUI, nullptr, 2 );
 #endif
 
 } // namespace gui
